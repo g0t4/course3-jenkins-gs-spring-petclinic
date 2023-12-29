@@ -25,3 +25,11 @@ services:
       - POSTGRES_DB=petclinic
     profiles:
     - postgres
+  email:
+    image: mailhog/mailhog
+    platform: linux/amd64
+    ports:
+      - "127.0.0.1:1025:1025"
+      - "127.0.0.1:8025:8025"
+    restart: unless-stopped
+

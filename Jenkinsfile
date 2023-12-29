@@ -3,11 +3,6 @@ echo "hello world"
 pipeline {
     agent any
     stages {
-        stage("checkout") {
-            steps {
-                git branch: 'main', url: 'https://github.com/anonimusbre/course3-jenkins-gs-spring-petclinic'
-            }
-        }
         stage("build") {
             steps {
                 sh "./mvnw package"
@@ -21,7 +16,7 @@ pipeline {
             }
         }
     }
-    
+
     post {
         always {
             emailext body: "${env.BUILD_URL}\n${currentBuild.absoluteUrl}",
@@ -31,4 +26,3 @@ pipeline {
         }
     }
 }
-
