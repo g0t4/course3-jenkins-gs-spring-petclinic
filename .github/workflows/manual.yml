@@ -30,3 +30,7 @@ jobs:
     # Runs a single command using the runners shell
     - name: Send greeting
       run: echo "Hello ${{ inputs.name }} ref ${{ github.ref }}"
+
+    - name: Send ref
+      run: echo "REF ${{ github.ref }}"
+
